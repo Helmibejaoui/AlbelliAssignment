@@ -14,9 +14,9 @@ class ListService
         $this->manager = $manager;
     }
 
-    public function getData(): array
+    public function getData(?array $filters = []): array
     {
-        return $this->manager->getData();
+        return $this->manager->getData($filters);
 
     }
 

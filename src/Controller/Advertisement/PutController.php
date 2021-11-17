@@ -2,30 +2,33 @@
 
 namespace App\Controller\Advertisement;
 
+use App\Service\Advertisement\PutService;
 use Exception;
 use App\Entity\Advertisement;
 use App\Form\AdvertisementType;
-use App\Service\Advertisement\PostService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
-class PostController extends AbstractController
+class PutController extends AbstractController
 {
     /**
-     * @Route("/api/advertisements", name="api_advertisement_new", methods={"POST"})
+     * @Route("/api/advertisements/{id}", name="api_advertisement_put", methods={"PUT"})
+     * @ParamConverter("advertisement", options={"id": "id"})
      * @param Request $request
-     * @param PostService $postService
+     * @param PutService $putService
+     * @param Advertisement $advertisement
      * @return JsonResponse
      * @throws Exception
      */
-    public function __invoke(Request $request, PostService $postService): JsonResponse
+    public function __invoke(Request $request, PutService $putService, Advertisement $advertisement): JsonResponse
     {
 
         $form = $this->createForm(
-            AdvertisementType::class, new Advertisement());
+            AdvertisementType::class, $advertisement);
         $form->submit(json_decode($request->getContent(), true));
         $form->handleRequest($request);
         $form->isValid();
@@ -34,7 +37,7 @@ class PostController extends AbstractController
                 (
                     $form->getErrors() &&
                     0 === $form->getErrors()->count()))) {
-            $result = $postService->post($form->getData());
+            $result = $putService->put($form->getData());
             if (isset($result['success'])) {
                 return new JsonResponse(['status' => 'ok', 'code' => Response::HTTP_CREATED, 'data' => $result], Response::HTTP_CREATED);
             }

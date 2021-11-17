@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Advertisement;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,14 @@ class AdvertisementType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('validUntil')
+            ->add('validUntil', DateType::class, [
+                    'widget' => 'single_text',
+                    'format' => 'dd/MM/yyyy',
+                    'attr' => ['class' => 'datepicker',
+                    ],
+                    'html5' => false,
+                    'required' => false,
+                    ])
             ->add('link');
     }
 

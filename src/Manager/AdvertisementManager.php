@@ -23,9 +23,9 @@ class AdvertisementManager
         $this->repository = $entityManager->getRepository(Advertisement::class);
     }
 
-    public function getData(): array
+    public function getData(?array $filters = []): array
     {
-        return $this->repository->findAll();
+        return $this->repository->findAdvertisements($filters);
     }
 
     public function post(Advertisement $advertisement): Advertisement
@@ -45,6 +45,14 @@ class AdvertisementManager
             'link' => $advertisement->getLink()
 
         ];
+    }
+
+    public function put(Advertisement $advertisement): Advertisement
+    {
+        $this->entityManager->persist($advertisement);
+        $this->entityManager->flush();
+
+        return $advertisement;
     }
 
 

@@ -6,6 +6,7 @@ namespace App\Controller\Advertisement;
 
 use App\Entity\Advertisement;
 
+use App\Service\Advertisement\GetService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;

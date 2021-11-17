@@ -7,9 +7,10 @@
 
 namespace App\Tests\Service\Advertisement\PostService;
 
-use PHPUnit\Framework\TestCase;
 
-class postTestPhpTest extends TestCase
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+
+class postTestPhpTest extends KernelTestCase
 {
     public function testSomething(): void
     {

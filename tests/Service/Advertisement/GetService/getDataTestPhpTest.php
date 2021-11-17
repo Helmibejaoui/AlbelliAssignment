@@ -7,12 +7,36 @@
 
 namespace App\Tests\Service\Advertisement\GetService;
 
-use PHPUnit\Framework\TestCase;
+use App\Entity\Advertisement;
+use App\Service\Advertisement\GetService;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class getDataTestPhpTest extends TestCase
+class getDataTestPhpTest extends KernelTestCase
 {
-    public function testSomething(): void
+    protected function setUp(): void
     {
-        $this->assertTrue(true);
+        self::bootKernel();
+    }
+
+    /**
+     * @test
+     */
+    public function invoke(): void
+    {
+        $entityManager = self::$container->get(EntityManagerInterface::class);
+        $getService = self::$container->get(GetService::class);
+
+        /**
+         * @var Advertisement $advertisement
+         */
+        $advertisement = $entityManager->getRepository(Advertisement::class)->find(2);
+        echo PHP_EOL.GetService::class.'->getData('.Advertisement::class.' '.$advertisement->getId().'): array'.PHP_EOL;
+
+        $data = $getService->getData($advertisement);
+
+        $this->assertIsArray($data);
+        $this->assertCount(4, $data);
+        $this->assertEquals($data['id'], $advertisement->getId());
     }
 }

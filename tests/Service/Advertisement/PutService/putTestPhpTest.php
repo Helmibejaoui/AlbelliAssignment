@@ -7,9 +7,9 @@
 
 namespace App\Tests\Service\Advertisement\PutService;
 
-use PHPUnit\Framework\TestCase;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class putTestPhpTest extends TestCase
+class putTestPhpTest extends KernelTestCase
 {
     public function testSomething(): void
     {

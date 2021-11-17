@@ -7,12 +7,67 @@
 
 namespace App\Tests\Service\Advertisement\ListService;
 
-use PHPUnit\Framework\TestCase;
+use App\Entity\Advertisement;
+use App\Service\Advertisement\ListService;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class getDataTestPhpTest extends TestCase
+class getDataTestPhpTest extends KernelTestCase
 {
-    public function testSomething(): void
+    protected function setUp(): void
     {
-        $this->assertTrue(true);
+        self::bootKernel();
+    }
+
+    /**
+     * @test
+     * @dataProvider provider
+     */
+    public function invoke(array $expected): void
+    {
+        $listService = self::$container->get(ListService::class);
+
+        echo PHP_EOL.ListService::class.'->getData('.Advertisement::class.'): array'.PHP_EOL;
+
+        $data = $listService->getData();
+        $advertisements = array_reduce($data, function ($advertisements, $advertisement) {
+            if (!is_array($advertisements)) {
+                $advertisements = [];
+            }
+
+            $advertisements[] = $advertisement['title'];
+
+            return $advertisements;
+        }, []);
+        $this->assertIsArray($data);
+        $this->assertEquals(implode(',', $expected), implode(',', $advertisements));
+    }
+
+    /**
+     * format string array expected: list of advertisements to be returned (as advertisements title).
+     */
+    public function provider(): array
+    {
+        return [
+            [['advertisement 19',
+                'advertisement 18',
+                'advertisement 17',
+                'advertisement 16',
+                'advertisement 15',
+                'advertisement 14',
+                'advertisement 13',
+                'advertisement 12',
+                'advertisement 11',
+                'advertisement 10',
+                'advertisement 9',
+                'advertisement 8',
+                'advertisement 7',
+                'advertisement 6',
+                'advertisement 5',
+                'advertisement 4',
+                'advertisement 3',
+                'advertisement 2',
+                'advertisement 1',
+                /*'advertisement 0', */]],
+        ];
     }
 }

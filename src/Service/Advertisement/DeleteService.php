@@ -10,7 +10,7 @@ namespace App\Service\Advertisement;
 use App\Entity\Advertisement;
 use App\Manager\AdvertisementManager;
 
-class GetService
+class DeleteService
 {
     private AdvertisementManager $manager;
 
@@ -19,8 +19,8 @@ class GetService
         $this->manager = $advertisementManager;
     }
 
-    public function getData(Advertisement $advertisement): array
+    public function delete(Advertisement $advertisement): bool
     {
-        return $this->manager->getAdvertisement($advertisement);
+        return $this->manager->delete($advertisement);
     }
 }

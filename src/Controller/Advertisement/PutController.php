@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * @owner        : 20 mars street,Mateur, Bizerte, Tunisia
+ * @contact      : bejaoui.helmi@gmail.com
+ */
+
 namespace App\Controller\Advertisement;
 
 use App\Entity\Advertisement;
@@ -16,6 +21,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class PutController extends AbstractController
 {
     /**
+     * update an existing advertisement.
+     *
      * @Route("/api/advertisements/{id}", name="api_advertisement_put", methods={"PUT"})
      * @ParamConverter("advertisement", options={"id": "id"})
      *

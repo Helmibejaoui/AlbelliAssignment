@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * @owner        : 20 mars street,Mateur, Bizerte, Tunisia
+ * @contact      : bejaoui.helmi@gmail.com
+ */
+
 namespace App\Manager;
 
 use App\Entity\Advertisement;
@@ -48,5 +53,13 @@ class AdvertisementManager
         $this->entityManager->flush();
 
         return $advertisement;
+    }
+
+    public function delete(Advertisement $advertisement): bool
+    {
+        $this->entityManager->remove($advertisement);
+        $this->entityManager->flush();
+
+        return true;
     }
 }

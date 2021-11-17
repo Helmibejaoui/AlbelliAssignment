@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * @owner        : 20 mars street,Mateur, Bizerte, Tunisia
+ * @contact      : bejaoui.helmi@gmail.com
+ */
+
 namespace App\Controller\Advertisement;
 
 use App\Entity\Advertisement;
@@ -15,6 +20,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class PostController extends AbstractController
 {
     /**
+     * add a new advertisement.
+     *
      * @Route("/api/advertisements", name="api_advertisement_new", methods={"POST"})
      *
      * @throws Exception

@@ -8,21 +8,21 @@
 namespace App\Controller\Advertisement;
 
 use App\Entity\Advertisement;
-use App\Service\Advertisement\GetService;
+use App\Service\Advertisement\DeleteService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
-class GetController
+class DeleteController
 {
     /**
-     * Get advertisement.
+     * delete advertisement.
      *
-     * @Route("/api/advertisements/{id}", name="api_advertisement_get", methods={"GET"}, options={"expose": true})
+     * @Route("/api/advertisements/{id}", name="api_advertisement_get", methods={"DELETE"}, options={"expose": true})
      * @ParamConverter("advertisement", options={"id": "id"})
      */
-    public function __invoke(GetService $getService, Advertisement $advertisement): JsonResponse
+    public function __invoke(DeleteService $deleteService, Advertisement $advertisement): JsonResponse
     {
-        return new JsonResponse($getService->getData($advertisement));
+        return new JsonResponse($deleteService->delete($advertisement));
     }
 }

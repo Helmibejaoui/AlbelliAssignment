@@ -11,7 +11,7 @@ trait Filter
         if (!empty($filters)) {
             foreach ($filterMap as $fmKey => $fmOptions) {
                 if (isset($filters[$fmOptions['alias'] ?? $fmKey]) && '' !== ($filters[$fmOptions['alias'] ?? $fmKey])) {
-                    $queryBuilder->andWhere($fmKey . ' ' . $fmOptions['operator'] . ' ' . ('IN' === $fmOptions['operator'] ? '(' : '') . ':' . $fmOptions['placeholder'] . '' . ('IN' === $fmOptions['operator'] ? ')' : ''));
+                    $queryBuilder->andWhere($fmKey.' '.$fmOptions['operator'].' '.('IN' === $fmOptions['operator'] ? '(' : '').':'.$fmOptions['placeholder'].''.('IN' === $fmOptions['operator'] ? ')' : ''));
                     $queryBuilder->setParameter($fmOptions['placeholder'], $filters[$fmOptions['alias'] ?? $fmKey]);
                 }
             }

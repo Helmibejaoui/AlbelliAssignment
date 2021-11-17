@@ -1,0 +1,40 @@
+<?php declare(strict_types=1);
+
+$header = <<<HEADER
+
+@owner        : 20 mars street,Mateur, Bizerte, Tunisia
+@contact      : bejaoui.helmi@gmail.com
+
+HEADER;
+
+return PhpCsFixer\Config::create()
+    ->setRules([
+        '@PSR1' => true,
+        '@PSR2' => true,
+        'psr4' => true,
+        '@Symfony' => true,
+        '@DoctrineAnnotation' => true,
+        'phpdoc_align' => [
+            'tags' => [
+                'param', 'return', 'throws', 'type', 'var'
+            ],
+        ],
+        'array_syntax' => ['syntax' => 'short'],
+        'fopen_flags' => false,
+        'protected_to_private' => false,
+        'combine_nested_dirname' => true,
+        'header_comment' => [
+            'header' => $header,
+            'separate' => 'both',
+            'location' => 'after_open'
+        ]
+    ])
+    ->setRiskyAllowed(true)
+    ->setUsingCache(true)
+    ->setHideProgress(false)
+    ->setFinder(
+        PhpCsFixer\Finder::create()
+            ->in([__DIR__.'/src',__DIR__.'/tests'])
+            ->name('*.php')
+            ->name('*.php.dist')
+    );

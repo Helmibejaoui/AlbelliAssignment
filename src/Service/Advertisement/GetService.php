@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Service\Advertisement;
-
 
 use App\Entity\Advertisement;
 use App\Manager\AdvertisementManager;

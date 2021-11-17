@@ -4,7 +4,6 @@ namespace App\Service\Advertisement;
 
 use App\Manager\AdvertisementManager;
 
-
 class ListService
 {
     private AdvertisementManager $manager;
@@ -17,7 +16,5 @@ class ListService
     public function getData(?array $filters = []): array
     {
         return $this->manager->getData($filters);
-
     }
-
 }

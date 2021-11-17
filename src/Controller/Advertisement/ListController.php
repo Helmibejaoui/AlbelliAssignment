@@ -11,9 +11,6 @@ class ListController
 {
     /**
      * @Route("/api/advertisements", name="api_advertisement_list", methods={"GET"})
-     * @param ListService $listService
-     * @param Request $request
-     * @return JsonResponse
      */
     public function __invoke(ListService $listService, Request $request): JsonResponse
     {

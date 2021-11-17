@@ -11,6 +11,7 @@
         "doctrine/doctrine-bundle": "^2.4",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.10",
+        "friendsofphp/php-cs-fixer": "^3.3",
         "sensio/framework-extra-bundle": "^6.2",
         "symfony/console": "5.3.*",
         "symfony/dotenv": "5.3.*",
@@ -55,7 +56,8 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ]
+        ],
+        "cs:fix": "./vendor/bin/php-cs-fixer fix --ansi"
     },
     "conflict": {
         "symfony/symfony": "*"

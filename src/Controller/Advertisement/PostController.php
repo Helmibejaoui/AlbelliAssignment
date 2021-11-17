@@ -2,10 +2,10 @@
 
 namespace App\Controller\Advertisement;
 
-use Exception;
 use App\Entity\Advertisement;
 use App\Form\AdvertisementType;
 use App\Service\Advertisement\PostService;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,16 +16,15 @@ class PostController extends AbstractController
 {
     /**
      * @Route("/api/advertisements", name="api_advertisement_new", methods={"POST"})
-     * @param Request $request
-     * @param PostService $postService
-     * @return JsonResponse
+     *
      * @throws Exception
      */
     public function __invoke(Request $request, PostService $postService): JsonResponse
     {
-
         $form = $this->createForm(
-            AdvertisementType::class, new Advertisement());
+            AdvertisementType::class,
+            new Advertisement()
+        );
         $form->submit(json_decode($request->getContent(), true));
         $form->handleRequest($request);
         $form->isValid();
@@ -33,7 +32,8 @@ class PostController extends AbstractController
             $form->isSubmitted() && (!$form->getErrors() ||
                 (
                     $form->getErrors() &&
-                    0 === $form->getErrors()->count()))) {
+                    0 === $form->getErrors()->count()
+                ))) {
             $result = $postService->post($form->getData());
             if (isset($result['success'])) {
                 return new JsonResponse(['status' => 'ok', 'code' => Response::HTTP_CREATED, 'data' => $result], Response::HTTP_CREATED);
@@ -43,6 +43,5 @@ class PostController extends AbstractController
         }
 
         return new JsonResponse(['status' => 'ko', 'code' => Response::HTTP_UNPROCESSABLE_ENTITY, 'data' => $form->getErrors()], Response::HTTP_UNPROCESSABLE_ENTITY);
-
     }
 }

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Manager;
-
 
 use App\Entity\Advertisement;
 use Doctrine\ORM\EntityManagerInterface;
@@ -11,14 +9,12 @@ use Doctrine\Persistence\ObjectRepository;
 
 class AdvertisementManager
 {
-
     private ObjectRepository|EntityRepository $repository;
     private EntityManagerInterface $entityManager;
 
     public function __construct(
         EntityManagerInterface $entityManager,
-    )
-    {
+    ) {
         $this->entityManager = $entityManager;
         $this->repository = $entityManager->getRepository(Advertisement::class);
     }
@@ -42,8 +38,7 @@ class AdvertisementManager
             'id' => $advertisement->getId(),
             'title' => $advertisement->getTitle(),
             'validUntil' => $advertisement->getValidUntil(),
-            'link' => $advertisement->getLink()
-
+            'link' => $advertisement->getLink(),
         ];
     }
 
@@ -54,6 +49,4 @@ class AdvertisementManager
 
         return $advertisement;
     }
-
-
 }

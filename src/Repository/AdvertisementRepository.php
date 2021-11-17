@@ -3,10 +3,10 @@
 namespace App\Repository;
 
 use App\Entity\Advertisement;
+use App\Repository\Traits\Filter;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\Persistence\ManagerRegistry;
-use App\Repository\Traits\Filter;
 
 /**
  * @method Advertisement|null find($id, $lockMode = null, $lockVersion = null)
@@ -45,11 +45,11 @@ class AdvertisementRepository extends ServiceEntityRepository
         $queryBuilder = $this->filterQueryBuilder(
             $this->createQueryBuilder('a')
                 ->orderBy('a.validUntil', 'DESC'),
-            $filterMap, $filters);
+            $filterMap,
+            $filters
+        );
 
         return $queryBuilder->getQuery()
             ->getResult(AbstractQuery::HYDRATE_ARRAY);
     }
-
-
 }

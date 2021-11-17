@@ -5,27 +5,24 @@
  * @contact      : bejaoui.helmi@gmail.com
  */
 
-namespace App\Tests\Service\Advertisement\DeleteService;
+namespace App\Tests\Manager\Advertisement\DeleteManager;
 
 use App\Entity\Advertisement;
+use App\ManagerInterface\Advertisement\DeleteManagerInterface;
 use App\ServiceInterface\Advertisement\DeleteServiceInterface;
 use Doctrine\ORM\EntityManagerInterface;
+use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class deleteTestPhpTest extends KernelTestCase
+class deleteTestPhpTest extends TestCase
 {
-    protected function setUp(): void
-    {
-        self::bootKernel();
-    }
-
     /**
      * @test
      * @dataProvider provider
      */
     public function invoke(bool $expected, int $advertisementId): void
     {
-        echo PHP_EOL.DeleteServiceInterface::class.'->delete([]): '.$expected.PHP_EOL;
+        echo PHP_EOL.DeleteManagerInterface::class.'->delete([]): '.$expected.PHP_EOL;
 
         $entityManager = self::$container->get(EntityManagerInterface::class);
         /**
@@ -33,10 +30,10 @@ class deleteTestPhpTest extends KernelTestCase
          */
         $advertisement = $entityManager->getRepository(Advertisement::class)->find($advertisementId);
         /**
-         * @var $deleteService DeleteServiceInterface
+         * @var $deleteManager DeleteManagerInterface
          */
-        $deleteService = self::$container->get(DeleteServiceInterface::class);
-        $data = $deleteService->delete($advertisement);
+        $deleteManager = self::$container->get(DeleteManagerInterface::class);
+        $data = $deleteManager->delete($advertisement);
 
         $this->assertIsBool($data);
         $this->assertEquals($expected, $data);

@@ -8,14 +8,14 @@
 namespace App\Service\Advertisement;
 
 use App\Entity\Advertisement;
-use App\Manager\AdvertisementManager;
+use App\ManagerInterface\Advertisement\GetAdvertisementManagerInterface;
 use App\ServiceInterface\Advertisement\GetServiceInterface;
 
 class GetService implements GetServiceInterface
 {
-    private AdvertisementManager $manager;
+    private GetAdvertisementManagerInterface $manager;
 
-    public function __construct(AdvertisementManager $advertisementManager)
+    public function __construct(GetAdvertisementManagerInterface $advertisementManager)
     {
         $this->manager = $advertisementManager;
     }

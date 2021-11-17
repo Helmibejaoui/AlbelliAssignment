@@ -8,7 +8,7 @@
 namespace App\Service\Advertisement;
 
 use App\Entity\Advertisement;
-use App\Manager\AdvertisementManager;
+use App\ManagerInterface\Advertisement\PostManagerInterface;
 use App\ServiceInterface\Advertisement\PostServiceInterface;
 use Exception;
 use Symfony\Component\Validator\ConstraintViolationList;
@@ -17,11 +17,11 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 class PostService implements PostServiceInterface
 {
     private ValidatorInterface $validator;
-    private AdvertisementManager $manager;
+    private PostManagerInterface $manager;
 
     public function __construct(
         ValidatorInterface $validator,
-        AdvertisementManager $manager
+        PostManagerInterface $manager
     ) {
         $this->validator = $validator;
         $this->manager = $manager;

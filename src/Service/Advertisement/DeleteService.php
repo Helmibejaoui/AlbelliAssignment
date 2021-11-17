@@ -8,14 +8,14 @@
 namespace App\Service\Advertisement;
 
 use App\Entity\Advertisement;
-use App\Manager\AdvertisementManager;
+use App\ManagerInterface\Advertisement\DeleteManagerInterface;
 use App\ServiceInterface\Advertisement\DeleteServiceInterface;
 
 class DeleteService implements DeleteServiceInterface
 {
-    private AdvertisementManager $manager;
+    private DeleteManagerInterface $manager;
 
-    public function __construct(AdvertisementManager $advertisementManager)
+    public function __construct(DeleteManagerInterface $advertisementManager)
     {
         $this->manager = $advertisementManager;
     }

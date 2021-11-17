@@ -7,14 +7,14 @@
 
 namespace App\Service\Advertisement;
 
-use App\Manager\AdvertisementManager;
+use App\ManagerInterface\Advertisement\GetDataManagerInterface;
 use App\ServiceInterface\Advertisement\ListServiceInterface;
 
 class ListService implements ListServiceInterface
 {
-    private AdvertisementManager $manager;
+    private GetDataManagerInterface $manager;
 
-    public function __construct(AdvertisementManager $manager)
+    public function __construct(GetDataManagerInterface $manager)
     {
         $this->manager = $manager;
     }

@@ -8,7 +8,7 @@
 namespace App\Tests\Service\Advertisement\DeleteService;
 
 use App\Entity\Advertisement;
-use App\Service\Advertisement\DeleteService;
+use App\ServiceInterface\Advertisement\DeleteServiceInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
@@ -25,7 +25,7 @@ class deleteTestPhpTest extends KernelTestCase
      */
     public function invoke(bool $expected, int $favoriteId): void
     {
-        echo PHP_EOL.DeleteService::class.'->delete([]): '.$expected.PHP_EOL;
+        echo PHP_EOL.DeleteServiceInterface::class.'->delete([]): '.$expected.PHP_EOL;
 
         $entityManager = self::$container->get(EntityManagerInterface::class);
         /**
@@ -33,9 +33,9 @@ class deleteTestPhpTest extends KernelTestCase
          */
         $advertisement = $entityManager->getRepository(Advertisement::class)->find($favoriteId);
         /**
-         * @var $deleteService DeleteService
+         * @var $deleteService DeleteServiceInterface
          */
-        $deleteService = self::$container->get(DeleteService::class);
+        $deleteService = self::$container->get(DeleteServiceInterface::class);
         $data = $deleteService->delete($advertisement);
 
         $this->assertIsBool($data);

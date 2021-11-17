@@ -8,8 +8,9 @@
 namespace App\Service\Advertisement;
 
 use App\Manager\AdvertisementManager;
+use App\ServiceInterface\Advertisement\ListServiceInterface;
 
-class ListService
+class ListService implements ListServiceInterface
 {
     private AdvertisementManager $manager;
 

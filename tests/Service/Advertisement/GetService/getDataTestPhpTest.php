@@ -8,7 +8,7 @@
 namespace App\Tests\Service\Advertisement\GetService;
 
 use App\Entity\Advertisement;
-use App\Service\Advertisement\GetService;
+use App\ServiceInterface\Advertisement\GetServiceInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
@@ -25,13 +25,13 @@ class getDataTestPhpTest extends KernelTestCase
     public function invoke(): void
     {
         $entityManager = self::$container->get(EntityManagerInterface::class);
-        $getService = self::$container->get(GetService::class);
+        $getService = self::$container->get(GetServiceInterface::class);
 
         /**
          * @var Advertisement $advertisement
          */
         $advertisement = $entityManager->getRepository(Advertisement::class)->find(2);
-        echo PHP_EOL.GetService::class.'->getData('.Advertisement::class.' '.$advertisement->getId().'): array'.PHP_EOL;
+        echo PHP_EOL.GetServiceInterface::class.'->getData('.Advertisement::class.' '.$advertisement->getId().'): array'.PHP_EOL;
 
         $data = $getService->getData($advertisement);
 

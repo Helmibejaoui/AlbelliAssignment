@@ -9,7 +9,7 @@ namespace App\Controller\Advertisement;
 
 use App\Entity\Advertisement;
 use App\Form\AdvertisementType;
-use App\Service\Advertisement\PostService;
+use App\ServiceInterface\Advertisement\PostServiceInterface;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -26,7 +26,7 @@ class PostController extends AbstractController
      *
      * @throws Exception
      */
-    public function __invoke(Request $request, PostService $postService): JsonResponse
+    public function __invoke(Request $request, PostServiceInterface $postService): JsonResponse
     {
         $form = $this->createForm(
             AdvertisementType::class,

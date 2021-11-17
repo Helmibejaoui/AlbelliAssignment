@@ -9,7 +9,7 @@ namespace App\Controller\Advertisement;
 
 use App\Entity\Advertisement;
 use App\Form\AdvertisementType;
-use App\Service\Advertisement\PutService;
+use App\ServiceInterface\Advertisement\PutServiceInterface;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,7 +28,7 @@ class PutController extends AbstractController
      *
      * @throws Exception
      */
-    public function __invoke(Request $request, PutService $putService, Advertisement $advertisement): JsonResponse
+    public function __invoke(Request $request, PutServiceInterface $putService, Advertisement $advertisement): JsonResponse
     {
         $form = $this->createForm(
             AdvertisementType::class,

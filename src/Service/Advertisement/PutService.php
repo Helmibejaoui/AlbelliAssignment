@@ -9,11 +9,12 @@ namespace App\Service\Advertisement;
 
 use App\Entity\Advertisement;
 use App\Manager\AdvertisementManager;
+use App\ServiceInterface\Advertisement\PutServiceInterface;
 use Exception;
 use Symfony\Component\Validator\ConstraintViolationList;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-class PutService
+class PutService implements PutServiceInterface
 {
     private ValidatorInterface $validator;
     private AdvertisementManager $manager;

@@ -8,7 +8,7 @@
 namespace App\Controller\Advertisement;
 
 use App\Entity\Advertisement;
-use App\Service\Advertisement\GetService;
+use App\ServiceInterface\Advertisement\GetServiceInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,7 +21,7 @@ class GetController
      * @Route("/api/advertisements/{id}", name="api_advertisement_get", methods={"GET"}, options={"expose": true})
      * @ParamConverter("advertisement", options={"id": "id"})
      */
-    public function __invoke(GetService $getService, Advertisement $advertisement): JsonResponse
+    public function __invoke(GetServiceInterface $getService, Advertisement $advertisement): JsonResponse
     {
         return new JsonResponse($getService->getData($advertisement));
     }

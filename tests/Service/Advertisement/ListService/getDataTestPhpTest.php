@@ -8,7 +8,7 @@
 namespace App\Tests\Service\Advertisement\ListService;
 
 use App\Entity\Advertisement;
-use App\Service\Advertisement\ListService;
+use App\ServiceInterface\Advertisement\ListServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class getDataTestPhpTest extends KernelTestCase
@@ -24,9 +24,9 @@ class getDataTestPhpTest extends KernelTestCase
      */
     public function invoke(array $expected): void
     {
-        $listService = self::$container->get(ListService::class);
+        $listService = self::$container->get(ListServiceInterface::class);
 
-        echo PHP_EOL.ListService::class.'->getData('.Advertisement::class.'): array'.PHP_EOL;
+        echo PHP_EOL.ListServiceInterface::class.'->getData('.Advertisement::class.'): array'.PHP_EOL;
 
         $data = $listService->getData();
         $advertisements = array_reduce($data, function ($advertisements, $advertisement) {

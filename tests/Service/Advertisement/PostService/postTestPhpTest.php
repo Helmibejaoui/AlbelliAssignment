@@ -7,7 +7,6 @@
 
 namespace App\Tests\Service\Advertisement\PostService;
 
-
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class postTestPhpTest extends KernelTestCase

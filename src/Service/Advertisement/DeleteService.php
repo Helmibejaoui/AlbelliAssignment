@@ -9,8 +9,9 @@ namespace App\Service\Advertisement;
 
 use App\Entity\Advertisement;
 use App\Manager\AdvertisementManager;
+use App\ServiceInterface\Advertisement\DeleteServiceInterface;
 
-class DeleteService
+class DeleteService implements DeleteServiceInterface
 {
     private AdvertisementManager $manager;
 

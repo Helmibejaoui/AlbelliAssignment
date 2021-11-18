@@ -5,7 +5,7 @@
  * @contact      : bejaoui.helmi@gmail.com
  */
 
-namespace App\Tests\Manager\Advertisement\GetDataManager;
+namespace App\Tests\Integration\Manager\Advertisement\GetDataManager;
 
 use App\Entity\Advertisement;
 use App\ServiceInterface\Advertisement\ListServiceInterface;

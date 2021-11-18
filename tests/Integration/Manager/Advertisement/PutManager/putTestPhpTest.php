@@ -5,7 +5,7 @@
  * @contact      : bejaoui.helmi@gmail.com
  */
 
-namespace App\Tests\Service\Advertisement\PutService;
+namespace App\Tests\Integration\Manager\Advertisement\PutManager;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 

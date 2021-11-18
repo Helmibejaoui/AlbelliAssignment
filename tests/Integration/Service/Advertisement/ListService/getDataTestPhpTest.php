@@ -5,7 +5,7 @@
  * @contact      : bejaoui.helmi@gmail.com
  */
 
-namespace App\Tests\Service\Advertisement\ListService;
+namespace App\Tests\Integration\Service\Advertisement\ListService;
 
 use App\Entity\Advertisement;
 use App\ServiceInterface\Advertisement\ListServiceInterface;

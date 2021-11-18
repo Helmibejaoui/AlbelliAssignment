@@ -28,7 +28,7 @@ class AdvertisementRepository extends ServiceEntityRepository
         parent::__construct($registry, Advertisement::class);
     }
 
-    public function findAdvertisements(?array $filters = [])
+    public function findAllAdvertisements(?array $filters = [])
     {
         $filterMap = [
             'a.title' => [

@@ -5,7 +5,7 @@
  * @contact      : bejaoui.helmi@gmail.com
  */
 
-namespace App\Tests\Manager\Advertisement\PostManager;
+namespace App\Tests\Integration\Manager\Advertisement\PostManager;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 

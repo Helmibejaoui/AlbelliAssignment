@@ -5,11 +5,11 @@
  * @contact      : bejaoui.helmi@gmail.com
  */
 
-namespace App\Tests\Manager\Advertisement\PutManager;
+namespace App\Tests\Integration\Service\Advertisement\PostService;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class putTestPhpTest extends KernelTestCase
+class postTestPhpTest extends KernelTestCase
 {
     public function testSomething(): void
     {

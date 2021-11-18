@@ -5,14 +5,14 @@
  * @contact      : bejaoui.helmi@gmail.com
  */
 
-namespace App\Tests\Service\Advertisement\GetService;
+namespace App\Tests\Integration\Manager\Advertisement\GetAdvertisementManager;
 
 use App\Entity\Advertisement;
 use App\ServiceInterface\Advertisement\GetServiceInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class getDataTestPhpTest extends KernelTestCase
+class getAdvertisementTestPhpTest extends KernelTestCase
 {
     protected function setUp(): void
     {

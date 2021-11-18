@@ -11,5 +11,5 @@ use App\Entity\Advertisement;
 
 interface GetServiceInterface
 {
-    public function getData(Advertisement $advertisement);
+    public function getData(Advertisement $advertisement): array;
 }

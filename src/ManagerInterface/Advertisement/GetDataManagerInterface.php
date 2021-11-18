@@ -9,5 +9,5 @@ namespace App\ManagerInterface\Advertisement;
 
 interface GetDataManagerInterface
 {
-    public function getData(?array $filters = []);
+    public function getData(?array $filters = []): array;
 }

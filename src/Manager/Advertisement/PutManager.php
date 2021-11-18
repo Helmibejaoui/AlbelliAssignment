@@ -13,11 +13,8 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class PutManager implements PutManagerInterface
 {
-    private EntityManagerInterface $entityManager;
-
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(private EntityManagerInterface $entityManager)
     {
-        $this->entityManager = $entityManager;
     }
 
     public function put(Advertisement $advertisement): Advertisement

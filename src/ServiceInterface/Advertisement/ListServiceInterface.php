@@ -9,5 +9,5 @@ namespace App\ServiceInterface\Advertisement;
 
 interface ListServiceInterface
 {
-    public function getData(?array $filters = []);
+    public function getData(?array $filters = []): array;
 }

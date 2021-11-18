@@ -16,15 +16,8 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class PutService implements PutServiceInterface
 {
-    private ValidatorInterface $validator;
-    private PutManagerInterface $manager;
-
-    public function __construct(
-        ValidatorInterface $validator,
-        PutManagerInterface $manager
-    ) {
-        $this->validator = $validator;
-        $this->manager = $manager;
+    public function __construct(private ValidatorInterface $validator, private PutManagerInterface $manager)
+    {
     }
 
     /**

@@ -11,5 +11,5 @@ use App\Entity\Advertisement;
 
 interface GetAdvertisementManagerInterface
 {
-    public function getAdvertisement(Advertisement $advertisement);
+    public function getAdvertisement(Advertisement $advertisement): array;
 }

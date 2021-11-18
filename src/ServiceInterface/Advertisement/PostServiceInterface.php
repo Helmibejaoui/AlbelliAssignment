@@ -11,5 +11,5 @@ use App\Entity\Advertisement;
 
 interface PostServiceInterface
 {
-    public function post(Advertisement $advertisement);
+    public function post(Advertisement $advertisement): array;
 }

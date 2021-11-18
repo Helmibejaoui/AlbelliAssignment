@@ -11,5 +11,5 @@ use App\Entity\Advertisement;
 
 interface PutManagerInterface
 {
-    public function put(Advertisement $advertisement);
+    public function put(Advertisement $advertisement): Advertisement;
 }

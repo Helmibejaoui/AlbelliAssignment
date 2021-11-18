@@ -13,11 +13,8 @@ use App\ServiceInterface\Advertisement\DeleteServiceInterface;
 
 class DeleteService implements DeleteServiceInterface
 {
-    private DeleteManagerInterface $manager;
-
-    public function __construct(DeleteManagerInterface $advertisementManager)
+    public function __construct(private DeleteManagerInterface $manager)
     {
-        $this->manager = $advertisementManager;
     }
 
     public function delete(Advertisement $advertisement): bool

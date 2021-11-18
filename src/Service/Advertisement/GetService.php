@@ -13,11 +13,8 @@ use App\ServiceInterface\Advertisement\GetServiceInterface;
 
 class GetService implements GetServiceInterface
 {
-    private GetAdvertisementManagerInterface $manager;
-
-    public function __construct(GetAdvertisementManagerInterface $advertisementManager)
+    public function __construct(private GetAdvertisementManagerInterface $manager)
     {
-        $this->manager = $advertisementManager;
     }
 
     public function getData(Advertisement $advertisement): array

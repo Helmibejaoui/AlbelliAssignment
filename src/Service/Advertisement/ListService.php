@@ -12,11 +12,8 @@ use App\ServiceInterface\Advertisement\ListServiceInterface;
 
 class ListService implements ListServiceInterface
 {
-    private GetDataManagerInterface $manager;
-
-    public function __construct(GetDataManagerInterface $manager)
+    public function __construct(private GetDataManagerInterface $manager)
     {
-        $this->manager = $manager;
     }
 
     public function getData(?array $filters = []): array

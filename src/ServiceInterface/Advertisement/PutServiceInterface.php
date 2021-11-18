@@ -11,5 +11,5 @@ use App\Entity\Advertisement;
 
 interface PutServiceInterface
 {
-    public function put(Advertisement $advertisement);
+    public function put(Advertisement $advertisement): array;
 }

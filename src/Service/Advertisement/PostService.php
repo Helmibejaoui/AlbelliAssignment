@@ -16,15 +16,8 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class PostService implements PostServiceInterface
 {
-    private ValidatorInterface $validator;
-    private PostManagerInterface $manager;
-
-    public function __construct(
-        ValidatorInterface $validator,
-        PostManagerInterface $manager
-    ) {
-        $this->validator = $validator;
-        $this->manager = $manager;
+    public function __construct(private ValidatorInterface $validator, private PostManagerInterface $manager)
+    {
     }
 
     /**

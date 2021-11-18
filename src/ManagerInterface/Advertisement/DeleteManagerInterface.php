@@ -11,5 +11,5 @@ use App\Entity\Advertisement;
 
 interface DeleteManagerInterface
 {
-    public function delete(Advertisement $advertisement);
+    public function delete(Advertisement $advertisement): bool;
 }

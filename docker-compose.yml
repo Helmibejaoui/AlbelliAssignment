@@ -23,7 +23,19 @@ services:
       - ./:/var/www/project/:cached
     depends_on:
       - database
-
+  react:
+    container_name: react
+    build:
+      context: client
+      dockerfile: Dockerfile-react
+    ports:
+      - '9001:9001'
+    volumes:
+      - ./:/var/www/project/:cached
+    depends_on:
+      - php
+    links:
+      - php
   nginx:
     container_name: nginx
     build:

@@ -9,9 +9,10 @@ import {TextField} from "@mui/material";
 
 interface IProps extends Omit<TextFieldClasses, 'errors' | 'onChange' | 'value' | 'root'> {
     name: string;
+    label: string;
 }
 
-const FormDatePicker: React.FC<IProps> = ({name, ...selectProps}) => {
+const FormDatePicker: React.FC<IProps> = ({name, label, ...selectProps}) => {
     const {
         control,
         formState: {errors},
@@ -23,15 +24,21 @@ const FormDatePicker: React.FC<IProps> = ({name, ...selectProps}) => {
             control={control}
             defaultValue={new Date()}
             render={({field: {onChange, value}}) => (
-                <LocalizationProvider dateAdapter={AdapterDateFns}>
-                    <DatePicker
-                        {...selectProps}
-                        onChange={onChange}
-                        value={value}
-                        renderInput={(params) => <TextField {...params}/>}
+                <>
+                    <label className="label">{label}</label>
+                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                        <DatePicker
+                            disablePast
+                            {...selectProps}
+                            onChange={onChange}
+                            value={value}
+                            inputFormat="dd/MM/yyyy"
+                            renderInput={(params) => <TextField fullWidth {...params}/>
+                            }
 
-                    />
-                </LocalizationProvider>
+                        />
+                    </LocalizationProvider>
+                </>
             )}
         />
     );

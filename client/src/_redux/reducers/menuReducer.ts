@@ -1,10 +1,11 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {getMenu} from "../../actions/menu";
+import {Menu} from "../../model/Menu";
 
 
 export type menuState = {
     loading: boolean;
-    data: [];
+    data: Menu[];
 
 };
 
@@ -25,7 +26,7 @@ export const menuSlice = createSlice({
             state.loading = true;
         },
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        [getMenu.fulfilled.type]: (state, {payload}: PayloadAction<[]>) => {
+        [getMenu.fulfilled.type]: (state, {payload}: PayloadAction<Menu[]>) => {
             state.data = payload;
         },
         [getMenu.rejected.type]: (state) => {

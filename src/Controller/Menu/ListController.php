@@ -21,6 +21,6 @@ class ListController
      */
     public function __invoke(ListServiceInterface $listService, Request $request): JsonResponse
     {
-        return new JsonResponse([['name' => 'Advertisement', 'path' => 'advertisement']]);
+        return new JsonResponse([['name' => 'Home', 'route' => '/'], ['name' => 'New advertisement', 'route' => '/advertisement/new']]);
     }
 }

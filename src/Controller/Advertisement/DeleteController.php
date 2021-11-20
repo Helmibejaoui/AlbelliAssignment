@@ -18,7 +18,7 @@ class DeleteController
     /**
      * delete advertisement.
      *
-     * @Route("/api/advertisements/{id}", name="api_advertisement_get", methods={"DELETE"}, options={"expose": true})
+     * @Route("/api/advertisements/{id}", name="api_advertisement_delete", methods={"DELETE"}, options={"expose": true})
      * @ParamConverter("advertisement", options={"id": "id"})
      */
     public function __invoke(DeleteServiceInterface $deleteService, Advertisement $advertisement): JsonResponse

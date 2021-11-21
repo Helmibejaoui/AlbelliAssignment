@@ -18,7 +18,7 @@ services:
       context: docker
       dockerfile: Dockerfile-php
     ports:
-      - '9001:9001'
+      - '9000:9000'
     volumes:
       - ./:/var/www/project/:cached
     depends_on:
@@ -42,7 +42,7 @@ services:
       context: docker
       dockerfile: Dockerfile-nginx
     ports:
-      - '9000:80'
+      - '8080:80'
     volumes:
       - ./:/var/www/project/:cached
     depends_on:

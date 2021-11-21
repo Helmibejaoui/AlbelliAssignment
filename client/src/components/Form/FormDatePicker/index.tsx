@@ -1,18 +1,20 @@
 import * as React from 'react';
-import {useFormContext, Controller} from 'react-hook-form';
+import {useFormContext, Controller, RegisterOptions} from 'react-hook-form';
 import {TextFieldClasses} from "@mui/material/TextField/textFieldClasses";
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from "@mui/lab/DatePicker";
 import {TextField} from "@mui/material";
+import {toast} from "react-toastify";
 
 
 interface IProps extends Omit<TextFieldClasses, 'errors' | 'onChange' | 'value' | 'root'> {
     name: string;
     label: string;
+    validate?: RegisterOptions;
 }
 
-const FormDatePicker: React.FC<IProps> = ({name, label, ...selectProps}) => {
+const FormDatePicker: React.FC<IProps> = ({name, label, validate, ...selectProps}) => {
     const {
         control,
         formState: {errors},
@@ -20,7 +22,7 @@ const FormDatePicker: React.FC<IProps> = ({name, label, ...selectProps}) => {
     return (
         <Controller
             name={name}
-            rules={{required: true}}
+            rules={validate}
             control={control}
             defaultValue={new Date()}
             render={({field: {onChange, value}}) => (
@@ -33,11 +35,13 @@ const FormDatePicker: React.FC<IProps> = ({name, label, ...selectProps}) => {
                             onChange={onChange}
                             value={value}
                             inputFormat="dd/MM/yyyy"
-                            renderInput={(params) => <TextField fullWidth {...params}/>
+                            renderInput={(params) => <TextField error={errors[name] !== undefined}
+                                                                fullWidth {...params}/>
                             }
 
                         />
                     </LocalizationProvider>
+                    <strong id="error-label">{errors[name]?.message}</strong>
                 </>
             )}
         />

@@ -4,6 +4,7 @@ import FormInput from "../components/Form/FormInput";
 import {Button, Grid} from "@mui/material";
 import FormDatePicker from "../components/Form/FormDatePicker";
 import {FormAdvertisement} from "../model/Advertisement";
+import Validators from "../Helpers/validators";
 
 interface AddUserFormProps {
     onSubmit: SubmitHandler<FormAdvertisement>;
@@ -19,14 +20,14 @@ const AddAdvertisementForm: React.FC<AddUserFormProps> = ({onSubmit, defaultValu
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
-                        <FormInput name="title" label="Title"/>
+                        <FormInput name="title" label="Title" validate={Validators([{ validation: 'required' }])}/>
                     </Grid>
                     <Grid item xs={12}>
                         <FormInput name="link" label="Link"
-                                   pattern="(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})"/>
+                                   validate={Validators([{ validation: 'required' },{validation:'link'}])}/>
                     </Grid>
                     <Grid item xs={12}>
-                        <FormDatePicker name="validUntil" label="Valid Until"/>
+                        <FormDatePicker name="validUntil" label="Valid Until" validate={Validators([{ validation: 'required' },{validation:'date'}])}/>
                     </Grid>
                     <Grid item xs={12}>
                         <Button variant="contained" type="submit">Submit</Button>

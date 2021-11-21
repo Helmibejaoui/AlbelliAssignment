@@ -15,7 +15,7 @@ To build and run the containers :
 - you will have two urls accessible `127.0.0.1:80` for the frontend and `127.0.0.1:8080` for the backend
 
 To set up the database, load fixture , install symfony libraries :
-- Run ### `docker exec -it php install-dev-first --keep-going --ignore-errors`
+- Run ### `docker exec -it php make install-dev-first --keep-going --ignore-errors`
 
 Backend Tests are under ./tests folder
 - Manager folder for Manager unitTests

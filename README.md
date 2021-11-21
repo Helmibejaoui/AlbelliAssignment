@@ -21,3 +21,9 @@ Backend Tests are under ./tests folder
 - Manager folder for Manager unitTests
 - Service folder for Service unitTests
 - Integration folder for Managers and Services integration Tests
+
+Apis:
+- advertisement list /api/advertisements with methode GET
+- advertisement get by ID /api/advertisements/{id} with methode GET
+- advertisement delete by ID /api/advertisements/{id} with methode DELETE
+- advertisement update by ID /api/advertisements/{id} with methode PUT

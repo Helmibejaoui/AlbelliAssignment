@@ -28,3 +28,7 @@ Apis:
 - advertisement get by ID `/api/advertisements/{id}` with methode GET
 - advertisement delete by ID `/api/advertisements/{id}` with methode DELETE
 - advertisement update by ID `/api/advertisements/{id}` with methode PUT
+
+Application Architecture representation
+![alt text](https://github.com/Helmibejaoui/AlbelliAssignment/blob/main/applicationArchi.jpg?raw=true)
+

@@ -16,6 +16,7 @@ To build and run the containers :
 
 To set up the database, load fixture , install symfony libraries :
 - Run ### `docker exec -it php make install-dev-first --keep-going --ignore-errors`
+- answer with yes when this question comes up in console `Careful, database "assignmentDB" will be purged. Do you want to continue? (yes/no)`
 
 Backend Tests are under ./tests folder
 - Manager folder for Manager unitTests

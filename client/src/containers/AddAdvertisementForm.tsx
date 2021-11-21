@@ -25,7 +25,7 @@ const AddAdvertisementForm: React.FC<AddUserFormProps> = ({onSubmit,defaultValue
                         <FormInput name="link" label="Link"/>
                     </Grid>
                     <Grid item xs={12}>
-                        <FormDatePicker name="validUntil" label="Date"/>
+                        <FormDatePicker name="validUntil" label="Valid Until"/>
                     </Grid>
                     <Grid item xs={12}>
                         <Button variant="contained" type="submit">Submit</Button>

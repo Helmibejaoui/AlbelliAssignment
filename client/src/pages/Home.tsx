@@ -51,7 +51,7 @@ const Home: React.FC = () => {
                             <TableBody>
                                 {advertisements.map((a, index) => (
                                     <TableRow
-                                        key={a.title}
+                                        key={index}
                                         sx={{'&:last-child td, &:last-child th': {border: 0}}}
                                     >
                                         <TableCell align="center" component="th" scope="row">
@@ -60,7 +60,12 @@ const Home: React.FC = () => {
                                         <TableCell align="center" component="th" scope="row">
                                             {a.link}
                                         </TableCell>
-                                        <TableCell align="center">{a.validUntil.date}</TableCell>
+                                        <TableCell
+                                            align="center">{new Date(a.validUntil.date).toLocaleDateString('fr-fr', {
+                                            year: 'numeric',
+                                            month: '2-digit',
+                                            day: '2-digit'
+                                        }).substring(0, 10)}</TableCell>
                                         <TableCell align="center">
                                             <IconButton color="primary" aria-label="upload picture" component="span"
                                                         onClick={() => history.push(`/advertisement/edit/${a.id}`)}>

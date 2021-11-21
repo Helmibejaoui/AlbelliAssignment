@@ -10,6 +10,8 @@ import ResponsiveDrawer from "./containers/Menu";
 import {Box} from "@mui/material";
 import {getMenu} from "./actions/menu";
 import {useAppDispatch} from "./_redux/app/store";
+import "react-toastify/dist/ReactToastify.css";
+import {ToastContainer} from "react-toastify";
 
 const App = (): JSX.Element => {
     const dispatch = useAppDispatch();
@@ -22,7 +24,9 @@ const App = (): JSX.Element => {
                 <Box
                     component="main"
                     sx={{flexGrow: 1, p: 3, width: {sm: `calc(100% - ${240}px)`}}}
+                    marginTop={12} pt={15}
                 >
+                    <ToastContainer autoClose={2000} />
                     <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route path="/advertisement/new" component={AddAdvertisement}/>

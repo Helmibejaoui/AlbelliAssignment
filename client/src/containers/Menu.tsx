@@ -18,7 +18,7 @@ import {FeaturedVideo, Home} from "@mui/icons-material";
 
 const drawerWidth = 240;
 
-function ResponsiveDrawer(props: any) {
+const ResponsiveDrawer = (props: any) => {
     const {window} = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const history = useHistory();
@@ -75,14 +75,13 @@ function ResponsiveDrawer(props: any) {
                 sx={{width: {sm: drawerWidth}, flexShrink: {sm: 0}}}
                 aria-label="mailbox folders"
             >
-                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
                 <Drawer
                     container={container}
                     variant="temporary"
                     open={mobileOpen}
                     onClose={handleDrawerToggle}
                     ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
+                        keepMounted: true,
                     }}
                     sx={{
                         display: {xs: 'block', sm: 'none'},

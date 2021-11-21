@@ -14,7 +14,7 @@ dsc:
 	php bin/console d:s:c
 cache-clear:
 	php bin/console cache:clear
-install-dev-first: composer-install create-database dsc-dump dsc cache-clear fixture-load-dev
+install-dev-first: composer-install create-database dsc-dump dsc dsu-dump dsu-force cache-clear fixture-load-dev
 install-dev-second: composer-install dsu-dump dsu-force cache-clear
 
 #utilisation : make [command] --keep-going --ignore-errors

@@ -10,7 +10,7 @@ namespace App\Repository;
 use App\Entity\Advertisement;
 use App\Repository\Traits\Filter;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\AbstractQuery;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -55,6 +55,6 @@ class AdvertisementRepository extends ServiceEntityRepository
         );
 
         return $queryBuilder->getQuery()
-            ->getResult(AbstractQuery::HYDRATE_ARRAY);
+            ->getResult(Query::HYDRATE_ARRAY);
     }
 }

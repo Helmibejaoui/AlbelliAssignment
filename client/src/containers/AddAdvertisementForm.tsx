@@ -7,11 +7,11 @@ import {FormAdvertisement} from "../model/Advertisement";
 
 interface AddUserFormProps {
     onSubmit: SubmitHandler<FormAdvertisement>;
-    defaultValues?:FormAdvertisement;
+    defaultValues?: FormAdvertisement;
 
 }
 
-const AddAdvertisementForm: React.FC<AddUserFormProps> = ({onSubmit,defaultValues}) => {
+const AddAdvertisementForm: React.FC<AddUserFormProps> = ({onSubmit, defaultValues}) => {
     const formMethods = useForm<FormAdvertisement>({defaultValues});
     const {handleSubmit} = formMethods;
     return (
@@ -19,10 +19,11 @@ const AddAdvertisementForm: React.FC<AddUserFormProps> = ({onSubmit,defaultValue
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
-                        <FormInput name="title" label="Title" />
+                        <FormInput name="title" label="Title"/>
                     </Grid>
                     <Grid item xs={12}>
-                        <FormInput name="link" label="Link"/>
+                        <FormInput name="link" label="Link"
+                                   pattern="(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})"/>
                     </Grid>
                     <Grid item xs={12}>
                         <FormDatePicker name="validUntil" label="Valid Until"/>

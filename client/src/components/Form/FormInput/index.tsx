@@ -7,9 +7,10 @@ import {TextFieldClasses} from "@mui/material/TextField/textFieldClasses";
 interface IProps extends Omit<TextFieldClasses, 'errors' | 'onChange' | 'value' | 'root'> {
     name: string;
     label: string;
+    pattern?:string;
 }
 
-const FormInput: React.FC<IProps> = ({name, label, ...selectProps}) => {
+const FormInput: React.FC<IProps> = ({name, label,pattern, ...selectProps}) => {
     const {
         control,
         formState: {errors},
@@ -25,6 +26,7 @@ const FormInput: React.FC<IProps> = ({name, label, ...selectProps}) => {
                     <div>
                         <label className="label">{label}</label>
                         <TextField
+                            inputProps={{ pattern: pattern }}
                             fullWidth
                             {...selectProps}
                             onChange={onChange}
